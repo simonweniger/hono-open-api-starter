@@ -28,47 +28,63 @@ A starter template for building fully documented type-safe JSON APIs with Hono a
 
 ## Setup
 
-Clone this template without git history
+### Clone this template without git history
 
 ```sh
-npx degit w3cj/hono-open-api-starter my-api
+npx degit simonweniger/hono-open-api-starter my-api
 cd my-api
 ```
 
-Create `.env` file
+### Create `.env` file
 
 ```sh
 cp .env.example .env
 ```
 
-Install dependencies
+### Install dependencies
 
 ```sh
-pnpm install
+bun install
 ```
 
-Create sqlite db / push schema
+### Push schema
 
 ```sh
-pnpm drizzle-kit push
+bun drizzle-kit push
 ```
 
-Run
+### Development
+
+Copy the `.env.example` file to `.env` and fill in the values.
 
 ```sh
-pnpm dev
+bun run sst:dev
 ```
 
-Lint
+## Deployment
 
 ```sh
-pnpm lint
+bun run sst:deploy
 ```
 
-Test
+### Lint
 
 ```sh
-pnpm test
+bun lint
+```
+
+### Test
+
+```sh
+bun test
+```
+
+### Pre-commit
+
+This project uses [pre-commit](https://pre-commit.com/) to enforce code style and quality. To install pre-commit, run:
+
+```sh
+pre-commit install
 ```
 
 ## Code Tour
@@ -103,6 +119,10 @@ All app routes are grouped together and exported into single type as `AppType` i
 - [What is Open API?](https://swagger.io/docs/specification/v3_0/about/)
 - [Hono](https://hono.dev/)
   - [Zod OpenAPI Example](https://hono.dev/examples/zod-openapi)
+  - [RPC](https://hono.dev/guides/rpc)
+  - [Zod OpenAPI with Hono](https://hono.dev/snippets/zod-openapi)
+  - [Swagger UI - Hono](https://hono.dev/snippets/swagger-ui)
+  - [Best Practices](https://hono.dev/guides/best-practices)
   - [Testing](https://hono.dev/docs/guides/testing)
   - [Testing Helper](https://hono.dev/docs/helpers/testing)
 - [@hono/zod-openapi](https://github.com/honojs/middleware/tree/main/packages/zod-openapi)
