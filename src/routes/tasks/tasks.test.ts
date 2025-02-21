@@ -1,16 +1,9 @@
+import { afterAll, beforeAll, describe, expect, it } from "bun:test";
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 /* eslint-disable ts/ban-ts-comment */
 import { testClient } from "hono/testing";
 import * as HttpStatusPhrases from "stoker/http-status-phrases";
-import {
-	afterAll,
-	beforeAll,
-	describe,
-	expect,
-	expectTypeOf,
-	it,
-} from "vitest";
 import { ZodIssueCode } from "zod";
 
 import env from "@/env";
@@ -72,7 +65,7 @@ describe("tasks routes", () => {
 		expect(response.status).toBe(200);
 		if (response.status === 200) {
 			const json = await response.json();
-			expectTypeOf(json).toBeArray();
+			expect(Array.isArray(json)).toBe(true);
 			expect(json.length).toBe(1);
 		}
 	});

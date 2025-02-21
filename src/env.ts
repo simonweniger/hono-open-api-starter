@@ -1,5 +1,4 @@
 import path from "node:path";
-/* eslint-disable node/no-process-env */
 import { config } from "dotenv";
 import { expand } from "dotenv-expand";
 import { z } from "zod";
@@ -43,12 +42,10 @@ const EnvSchema = z
 
 export type env = z.infer<typeof EnvSchema>;
 
-// eslint-disable-next-line ts/no-redeclare
-const { data: env, error } = EnvSchema.safeParse(process.env);
+const env = EnvSchema.parse(process.env);
 
-if (error) {
+if (EnvSchema.safeParse(process.env).success === false) {
 	console.error("❌ Invalid env:");
-	console.error(JSON.stringify(error.flatten().fieldErrors, null, 2));
 	process.exit(1);
 }
 

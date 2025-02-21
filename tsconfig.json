@@ -5,16 +5,18 @@
 		"jsxImportSource": "hono/jsx",
 		"baseUrl": "./",
 		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"moduleResolution": "bundler",
 		"paths": {
 			"@/*": ["./src/*"]
 		},
 		"typeRoots": ["./node_modules/@types"],
 		"types": ["node"],
 		"strict": true,
-		"outDir": "./dist",
-		"skipLibCheck": true
+		"skipLibCheck": true,
+		"allowImportingTsExtensions": true,
+		"noEmit": true
 	},
+	"type": "module",
 	"tsc-alias": {
 		"resolveFullPaths": true
 	}

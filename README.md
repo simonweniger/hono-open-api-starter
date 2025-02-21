@@ -67,12 +67,6 @@ bun run sst:dev
 bun run sst:deploy
 ```
 
-### Lint
-
-```sh
-bun lint
-```
-
 ### Test
 
 ```sh
